@@ -1,0 +1,2 @@
+# TestCalcQuadFunc
+for new work
