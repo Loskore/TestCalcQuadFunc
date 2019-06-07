@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru" xml:lang="ru">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS-links-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <title>
+        Quadratic Func
+    </title>
+
+    <!-- JS-modules -->
+    <script data-require="angular.js@1.6.9" data-semver="1.6.9" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <!-- Mymodules-->
+    <script type="text/javascript" src="myscript.js"></script>
+
+    <style>
+        .centerelem {
+            display: table;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="text-center alert alert-info">
+        <strong>Привет пользователь!</strong> Давай вместе расчитаем и построим график квадратичной функции
+        <h4 style="padding-top: 5px;"><i>f(x)=ax<sup>2</sup>+bx+c</i></h4>
+    </div>
+    <div class="container-fluid">
+        <div ng-app="myTestApp" ng-controller="myRoots">
+            <!-- Расчет корней уравнения-->
+            <form class="form-inline" style="text-align: center">
+                <div class="form-group">
+                    <label style="font-size: 18px;" for="input_a"><i>f(x) = </i></label>
+                    <input type="text" class="form-control" id="input_a" ng-model="coef_a" placeholder="a" required>
+                </div>
+                <div class="form-group">
+                    <label style="font-size: 18px;" for="input_b">x<sup>2</sup> + </label>
+                    <input type="text" class="form-control" id="input_b" ng-model="coef_b" placeholder="b" required>
+                </div>
+                <div class="form-group">
+                    <label style="font-size: 18px;" for="input_c">x + </label>
+                    <input type="text" class="form-control" id="input_c" ng-model="coef_c" placeholder="c" required>
+                </div>
+                <button type="button" class="btn btn-primary btn-md" style="margin-left: 5px;" ng-click="calcQuadF()">Вычислить!</button>
+            </form>
+            <br>
+            <p class="text-center" style="margin-right: 35%; font-size: 20px;">{{resulttext}}</p>
+            <p class="text-center" style="font-size: 16px;" ng-show="exists_root_x1">X<sub>1</sub> = {{root_x1}}</p>
+            <p class="text-center" style="font-size: 16px;" ng-show="exists_root_x2">X<sub>2</sub> = {{root_x2}}</p>
+
+            <!-- err msg-->
+            <div ng-show="errormsg" id="div_errormsg"></div>
+
+            <!-- Построение графика-->
+            <div ng-show="showgraph" class="centerelem" id="div_showgraph">
+                <canvas id="canvas" width="640" height="480"></canvas>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

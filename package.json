@@ -1,0 +1,16 @@
+{
+    "name": "calc_quadfunc",
+    "version": "0.0.1",
+    "description": "testwork",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "keywords": [],
+    "author": "Loskore",
+    "license": "ISC",
+    "dependencies": {
+        "ejs": "^2.6.1",
+        "express": "^4.17.1"
+    }
+}
